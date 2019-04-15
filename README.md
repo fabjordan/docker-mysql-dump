@@ -8,8 +8,8 @@ Ele irá compactar o arquivo enquanto realiza o dump e enviará o arquivo direto
 ```
 #!/bin/sh
 
- data=$(date '+%d-%m-%Y_%H-%M-%S');
- nome='backup_'$data.sql;
+data=$(date '+%d-%m-%Y_%H-%M-%S');
+nome='backup_'$data.sql;
 
 <!-- Caso não tenha o Figlet instalado basta rodar: sudo apt install figlet -->
 figlet -c EXECUTANDO BACKUP
