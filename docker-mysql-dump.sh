@@ -10,7 +10,7 @@ echo "----------------------------------------------------";
 echo "| ACESSANDO SERVIDOR REMOTO E REALIZANDO DUMP MYSQL |";
 echo "----------------------------------------------------";
 
-ssh user@ipServidor "docker exec nome-container mysqldump -u root --password='senha-do-banco' nome-do-banco | gzip -v > /local-onde-ficara-o-dump-mysql/$nome.gz";
+ssh user@ipServidor "docker exec nome-container mysqldump -u usuario-do-banco --password='senha-do-banco' nome-do-banco | gzip -v > /local-onde-ficara-o-dump-mysql/$nome.gz";
 
 echo "\n------------------------------------"
 echo "| MYSQL DUMP REALIZADO COM SUCESSO! |";
@@ -18,7 +18,7 @@ echo "------------------------------------"
 
 echo "\nFAZENDO DOWNLOAD...";
 
-rsync -avz -e ssh user@ipServidor:/local-onde-ficara-o-dump-mysql/$nome.gz --progress ~/minha-pasta-local
+rsync -avz -e ssh user@ipServidor:/local-onde-esta-o-dump-mysql/$nome.gz --progress ~/minha-pasta-local
 
 echo "\n-------------------------------------------------------------------";
 echo "| DOWNLOAD $nome FINALIZADO COM SUCESSO! |";
