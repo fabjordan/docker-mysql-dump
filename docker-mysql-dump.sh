@@ -10,6 +10,7 @@ echo "----------------------------------------------------";
 echo "| ACESSANDO SERVIDOR REMOTO E REALIZANDO DUMP MYSQL |";
 echo "----------------------------------------------------";
 
+# Acessa o container no servidor e realiza o dump.
 ssh user@ipServidor "docker exec nome-container mysqldump -u usuario-do-banco --password='senha-do-banco' nome-do-banco | gzip -v > /local-onde-ficara-o-dump-mysql/$nome.gz";
 
 echo "\n------------------------------------"
@@ -18,6 +19,7 @@ echo "------------------------------------"
 
 echo "\nFAZENDO DOWNLOAD...";
 
+# Envia o arquivo para uma pasta no seu computador.
 rsync -avz -e ssh user@ipServidor:/local-onde-esta-o-dump-mysql/$nome.gz --progress ~/minha-pasta-local
 
 echo "\n-------------------------------------------------------------------";
